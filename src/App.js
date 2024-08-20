@@ -11,7 +11,7 @@ function App() {
   const [selectedBot, setSelectedBot] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8001/bots")
+    fetch("https://json-fawn.vercel.app/bots")
       .then((response) => response.json())
       .then((data) => setBots(data));
   }, []);
@@ -27,7 +27,7 @@ function App() {
   }
 
   function dischargeBot(bot) {
-    fetch(`http://localhost:8001/bots/${bot.id}`, {
+    fetch(`https://json-fawn.vercel.app/bots/${bot.id}`, {
       method: "DELETE",
     }).then(() => {
       removeBotFromArmy(bot);
